@@ -32,12 +32,12 @@ $('select').on('change', function(){
         let list = $('ul li');
         let toSort = [];
         list.each(function(){
-            toSort.push($(this).html());
+            toSort.push($(this));
         });
-        toSort.sort();
+        toSort.sort((a,b) => a.text().localeCompare(b.text()));
         $('ul').html('');
         toSort.forEach(function(i){
-            $('ul').append('<li>' + i + '</li>');
+            $('ul').append(i);
         });
     }
 });
